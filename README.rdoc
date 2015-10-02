@@ -1,0 +1,29 @@
+
+Models
+-----
+
+Game
+  - has_many :cards
+  - has_many :hands
+Hand
+  - belong_to game
+  - has_many :cards
+  - player_or_dealer (boolean)
+Card
+  - Suit
+  - Name
+  - Value
+  - belongs_to game
+  - belongs_to hand
+
+  7D            vs JD
+  suit: D          suit: D
+  value: 7         value: 10
+  name: 7          name: J
+
+
+
+The UI
+
+* root page --> Button that creates a game
+* Game page --> shows results of the game

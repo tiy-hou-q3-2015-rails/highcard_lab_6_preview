@@ -1,0 +1,33 @@
+<h1>Game#show</h1>
+
+<div class="well">
+  <% if @game.player_wins? %>
+    YAY
+  <% else %>
+    BOOOOOO
+  <% end %>
+
+  <%= link_to "Hit", hit_game_path(id: @game.id), class: "btn btn-success btn-lg", method: :post %>
+
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+    <h2>Player Hand</h2>
+
+    <% @game.player_hand.cards.each do |card| %>
+      <%= image_tag "#{card.name}#{card.suit}.png" %>
+    <% end %>
+
+  </div>
+
+  <div class="col-xs-6">
+    <h2>Dealer Hand</h2>
+
+    <% @game.dealer_hand.cards.each do |card| %>
+      <%= image_tag "#{card.name}#{card.suit}.png" %>
+
+    <% end %>
+  </div>
+
+</div>
